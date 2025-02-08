@@ -1,0 +1,28 @@
+#include <stdio.h>
+#include <stdlib.h>
+int main()
+{
+    int a[10],n,i,key;
+    printf("Enter how many numbers in an array: ");
+    scanf("&d",&n);
+    printf("Accept n numbers in an array: \n");
+    for(i=0;i<n;i++)
+    {
+        scanf("&d",&a[i]);
+    }
+    printf("Display Array Elements\n");
+    for(i=0;i<n;i++)
+    {
+        printf("%d",&a[i]);
+    }
+    printf("Enter search value: ");
+    scanf("%d", &key);
+    for(i=0;i<n;i++)
+    {
+        if (a[i]==key)
+        printf("Number found at position %d", i+1);
+        else
+        printf("Element not found!");
+    }
+    return 0;
+}
