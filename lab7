@@ -1,0 +1,32 @@
+#include <stdio.h>
+#define MAX_SIZE 1000 
+int main() {
+    int numbers[MAX_SIZE];
+    int size, max, maxIndex = -1;
+    printf("Enter the number of elements (up to %d): ", MAX_SIZE);
+    scanf("%d", &size);
+    printf("Enter %d integers:\n", size);
+    for (int i = 0; i < size; i++) {
+        scanf("%d", &numbers[i]);
+    }
+    max = numbers[0];
+    for (int i = 0; i < size; i++) {
+        if (numbers[i] > max) {
+            max = numbers[i];
+            maxIndex = i;
+        }
+    }
+    printf("Maximum value is: %d\n", max);
+    int countAfterMax = size - maxIndex - 1;
+    if (countAfterMax >= 3) {
+        max -= 100;
+        printf("After subtracting 100 from maximum: %d\n", max);
+    } else if (countAfterMax == 2) {
+        printf("2 debit count\n");
+    } else if (countAfterMax == 1) {
+        printf("1 debit count\n");
+    } else {
+        printf("No elements after the maximum.\n");
+    }
+    return 0;
+}
