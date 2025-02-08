@@ -1,0 +1,23 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+#include <time.h>
+#define MAX_NAME_LENGTH 50
+int generateRandomNumber(int min, int max) {
+    return (rand() % (max - min + 1)) + min;
+}
+void generateTicketID(char *customerName, char *ticketID) {
+    int randomNumber = generateRandomNumber(1000, 9999);
+    snprintf(ticketID, 100, "TKT-%s-%d", customerName, randomNumber);
+}
+int main() {
+    char customerName[MAX_NAME_LENGTH];
+    char ticketID[100];
+    srand(time(NULL));
+    printf("Enter customer name: ");
+    fgets(customerName, MAX_NAME_LENGTH, stdin);
+    customerName[strcspn(customerName, "\n")] = 0;
+    generateTicketID(customerName, ticketID);
+    printf("Generated Ticket ID: %s\n", ticketID);
+    return 0;
+}
