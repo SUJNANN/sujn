@@ -1,0 +1,28 @@
+#include <stdio.h>
+int isPrime(int number) {
+    if (number <= 1) {
+        return 0; 
+    }
+    for (int i = 2; i * i <= number; i++) {
+        if (number % i == 0) {
+            return 0; 
+        }
+    }
+        return 1; }
+void findPrimePairs(int start, int end) {
+    for (int i = start; i <= end; i++) {
+        if (isPrime(i) && isPrime(i + 6)) {
+            printf("(%d, %d)\n", i, i + 6);
+        }
+    }
+}
+int main() {
+    int start, end;
+    printf("Enter the start of the range: ");
+    scanf("%d", &start);
+    printf("Enter the end of the range: ");
+    scanf("%d", &end);
+    printf("Prime pairs with a difference of 6 in the range [%d, %d]:\n", start, end);
+    findPrimePairs(start, end);
+    return 0;
+}
